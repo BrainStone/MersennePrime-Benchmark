@@ -34,3 +34,7 @@ task jmh(type: JavaExec) {
     // To pass parameters ("-h" gives a list of possible parameters)
     // args(listOf("-h"))
 }
+
+spotbugs {
+    excludeFilter = file("src/jmh/resources/spotbugs_exclusions.xml")
+}
