@@ -25,7 +25,6 @@ dependencies {
 
 jmh {
     resultFormat = 'CSV'
-    threads = 4
 
     jmhVersion = jmh_version
 }
