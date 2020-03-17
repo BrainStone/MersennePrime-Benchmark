@@ -109,7 +109,9 @@ public class MersennePrimeTester {
   @UtilityClass
   protected static final class FastMod {
     public static final BigInteger fastMod(BigInteger number, BigInteger candidate, int prime) {
-      return number.and(candidate).add(number.shiftRight(prime));
+      BigInteger tmp = number.and(candidate).add(number.shiftRight(prime));
+
+      return (tmp.compareTo(candidate) >= 0) ? tmp.subtract(candidate) : tmp;
     }
   }
 }
