@@ -1,40 +1,35 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "me.champeau.gradle:jmh-gradle-plugin:0.5.0"
+    }
+}
+
 apply from: "GradleCommon/common.gradle"
 
-configurations {
-    jmhAnnotationProcessor.extendsFrom annotationProcessor
-    jmhCompileClasspath.extendsFrom compileClasspath
-}
+apply plugin: "me.champeau.gradle.jmh"
 
 repositories {
     // Additional repositories
 }
 
-sourceSets {
-    jmh {
-        java {
-            srcDir "src/jmh/java"
-        }
-    }
-}
-
 dependencies {
-    jmhImplementation project
-    jmhImplementation "org.openjdk.jmh:jmh-core:1.21"
-    jmhAnnotationProcessor "org.openjdk.jmh:jmh-generator-annprocess:1.21"
-    
-    // For eclipse
-    implementation "org.openjdk.jmh:jmh-core:1.21"
+    // Additional dependencies
 }
 
-task jmh(type: JavaExec) {
-    dependsOn jmhClasses
-    group = "benchmark"
-    main = "org.openjdk.jmh.Main"
-    classpath = sourceSets.jmh.runtimeClasspath
-    // To pass parameters ("-h" gives a list of possible parameters)
-    // args(listOf("-h"))
-}
 
+jmh {
+    resultFormat = 'CSV'
+    threads = 4
+
+    jmhVersion = jmh_version
+}
+ 
 spotbugs {
     excludeFilter = file("src/jmh/resources/spotbugs_exclusions.xml")
 }
