@@ -18,6 +18,16 @@ public class MersennePrimerTesterTest {
   }
 
   @Test
+  public void mul_fastMod_sub_test() {
+    assertCalculatesCorrectly(MersennePrimeTester::mul_fastMod_sub);
+  }
+
+  @Test
+  public void mul_fastMod_sub_fastMod_test() {
+    assertCalculatesCorrectly(MersennePrimeTester::mul_fastMod_sub_fastMod);
+  }
+
+  @Test
   public void mul_mod_sub_test() {
     assertCalculatesCorrectly(MersennePrimeTester::mul_mod_sub);
   }
@@ -30,6 +40,11 @@ public class MersennePrimerTesterTest {
   @Test
   public void mul_sub_mod_test() {
     assertCalculatesCorrectly(MersennePrimeTester::mul_sub_mod);
+  }
+
+  @Test
+  public void mul_sub_fastMod_test() {
+    assertCalculatesCorrectly(MersennePrimeTester::mul_sub_fastMod);
   }
 
   private static void assertCalculatesCorrectly(BiFunction<BigInteger, Integer, Boolean> tester) {
