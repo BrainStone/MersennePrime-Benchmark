@@ -21,6 +21,11 @@ public class MersenneNumberGeneratorTest {
     assertCalculatesCorrectly(ITERATIONS, MersenneNumberGenerator::setBit_sub);
   }
 
+  @Test
+  public void rawByteArrayTest() {
+    assertCalculatesCorrectly(ITERATIONS, MersenneNumberGenerator::rawByteArray);
+  }
+
   private static void assertCalculatesCorrectly(
       int iterations, Function<Integer, BigInteger> generator) {
     BigInteger num = ONE;
