@@ -7,7 +7,7 @@ import java.util.function.Function;
 import org.junit.Test;
 
 public class MersenneNumberGeneratorTest {
-  private static final int ITERATIONS = 1000;
+  private static final int ITERATIONS = 100_000;
 
   private static final BigInteger ONE = BigInteger.ONE;
 
@@ -28,7 +28,7 @@ public class MersenneNumberGeneratorTest {
     for (int i = 1; i < iterations; ++i) {
       assertEquals(num, generator.apply(i));
 
-      num = num.shiftLeft(1).add(ONE);
+      num = num.shiftLeft(1).or(ONE);
     }
   }
 }
