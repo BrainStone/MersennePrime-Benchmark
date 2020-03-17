@@ -38,13 +38,28 @@ public class MersennePrimerTesterTest {
   }
 
   @Test
-  public void mul_sub_mod_test() {
-    assertCalculatesCorrectly(MersennePrimeTester::mul_sub_mod);
+  public void mul_remain_sub_test() {
+    assertCalculatesCorrectly(MersennePrimeTester::mul_remain_sub);
+  }
+
+  @Test
+  public void mul_remain_sub_remain_test() {
+    assertCalculatesCorrectly(MersennePrimeTester::mul_remain_sub_remain);
   }
 
   @Test
   public void mul_sub_fastMod_test() {
     assertCalculatesCorrectly(MersennePrimeTester::mul_sub_fastMod);
+  }
+
+  @Test
+  public void mul_sub_mod_test() {
+    assertCalculatesCorrectly(MersennePrimeTester::mul_sub_mod);
+  }
+
+  @Test
+  public void mul_sub_remain_test() {
+    assertCalculatesCorrectly(MersennePrimeTester::mul_sub_remain);
   }
 
   private static void assertCalculatesCorrectly(BiFunction<BigInteger, Integer, Boolean> tester) {
