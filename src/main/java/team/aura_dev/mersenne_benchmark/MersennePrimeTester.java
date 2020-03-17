@@ -1,7 +1,9 @@
 package team.aura_dev.mersenne_benchmark;
 
 import java.math.BigInteger;
+import lombok.experimental.UtilityClass;
 
+@UtilityClass
 public class MersennePrimeTester {
   private static final BigInteger TWO = BigInteger.valueOf(2);
   private static final BigInteger FOUR = BigInteger.valueOf(4);

@@ -37,6 +37,13 @@ public class PrimeIterator implements Iterable<Integer>, Iterator<Integer>, Supp
     return get(currentIndex++);
   }
 
+  /**
+   * Gets the nth prime.<br>
+   * <b>The first prime has the index 0!</b>
+   *
+   * @param index the index of the wanted prime, starting at index 0
+   * @return the prime at the specified 0-based index
+   */
   public Integer get(int index) {
     if (index < 0) throw new IndexOutOfBoundsException("index must not be negative. Was " + index);
 
