@@ -48,7 +48,7 @@ public class MersennePrimeTester {
     BigInteger LLval = FOUR;
 
     for (int i = 2; i < prime; i++) {
-      LLval = LLval.multiply(LLval).mod(candidate).subtract(TWO);
+      LLval = LLval.multiply(LLval).mod(candidate).subtract(TWO).mod(candidate);
     }
 
     return LLval.signum() == 0;
