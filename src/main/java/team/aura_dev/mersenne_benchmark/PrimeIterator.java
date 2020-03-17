@@ -4,8 +4,9 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.function.Supplier;
 
-public class PrimeIterator implements Iterable<Integer>, Iterator<Integer> {
+public class PrimeIterator implements Iterable<Integer>, Iterator<Integer>, Supplier<Integer> {
   private static final List<Integer> primes = new LinkedList<Integer>(Arrays.asList(2, 3));
 
   private int currentCandidate;
@@ -23,19 +24,32 @@ public class PrimeIterator implements Iterable<Integer>, Iterator<Integer> {
 
   @Override
   public Integer next() {
-    synchronized (primes) {
-      for (; currentIndex >= primes.size(); currentCandidate += 6) {
-        checkPrime(currentCandidate);
-        checkPrime(currentCandidate + 2);
-      }
-
-      return primes.get(currentIndex++);
-    }
+    return get();
   }
 
   @Override
   public Iterator<Integer> iterator() {
     return this;
+  }
+
+  @Override
+  public Integer get() {
+    return get(currentIndex++);
+  }
+
+  public Integer get(int index) {
+    if (index < 0) throw new IndexOutOfBoundsException("index must not be negative. Was " + index);
+
+    if (index >= primes.size()) {
+      synchronized (primes) {
+        for (; index >= primes.size(); currentCandidate += 6) {
+          checkPrime(currentCandidate);
+          checkPrime(currentCandidate + 2);
+        }
+      }
+    }
+
+    return primes.get(index);
   }
 
   private static void checkPrime(int candidate) {

@@ -1,5 +1,10 @@
 apply from: "GradleCommon/common.gradle"
 
+configurations {
+    jmhAnnotationProcessor.extendsFrom annotationProcessor
+    jmhCompileClasspath.extendsFrom compileClasspath
+}
+
 repositories {
     // Additional repositories
 }
@@ -16,6 +21,9 @@ dependencies {
     jmhImplementation project
     jmhImplementation "org.openjdk.jmh:jmh-core:1.21"
     jmhAnnotationProcessor "org.openjdk.jmh:jmh-generator-annprocess:1.21"
+    
+    // For eclipse
+    implementation "org.openjdk.jmh:jmh-core:1.21"
 }
 
 task jmh(type: JavaExec) {
