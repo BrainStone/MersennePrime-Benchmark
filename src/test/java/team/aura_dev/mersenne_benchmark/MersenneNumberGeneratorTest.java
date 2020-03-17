@@ -12,17 +12,17 @@ public class MersenneNumberGeneratorTest {
   private static final BigInteger ONE = BigInteger.ONE;
 
   @Test
-  public void rawByteArrayTest() {
+  public void rawByteArray_test() {
     assertCalculatesCorrectly(ITERATIONS, MersenneNumberGenerator::rawByteArray);
   }
 
   @Test
-  public void setBit_subTest() {
+  public void setBit_sub_test() {
     assertCalculatesCorrectly(ITERATIONS, MersenneNumberGenerator::setBit_sub);
   }
 
   @Test
-  public void shiftLeft_subTest() {
+  public void shiftLeft_sub_test() {
     assertCalculatesCorrectly(ITERATIONS, MersenneNumberGenerator::shiftLeft_sub);
   }
 
