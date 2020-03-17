@@ -13,8 +13,18 @@ public class MersennePrimerTesterTest {
   }
 
   @Test
+  public void modPow_sub_fastMod_test() {
+    assertCalculatesCorrectly(MersennePrimeTester::modPow_sub_fastMod);
+  }
+
+  @Test
   public void modPow_sub_mod_test() {
     assertCalculatesCorrectly(MersennePrimeTester::modPow_sub_mod);
+  }
+
+  @Test
+  public void modPow_sub_remain_test() {
+    assertCalculatesCorrectly(MersennePrimeTester::modPow_sub_remain);
   }
 
   @Test

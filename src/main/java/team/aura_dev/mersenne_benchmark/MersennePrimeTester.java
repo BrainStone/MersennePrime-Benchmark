@@ -22,6 +22,18 @@ public class MersennePrimeTester {
     return LLval.signum() == 0;
   }
 
+  public static boolean modPow_sub_fastMod(BigInteger candidate, int prime) {
+    if (prime == 2) return true;
+
+    BigInteger LLval = FOUR;
+
+    for (int i = 2; i < prime; i++) {
+      LLval = LLval.modPow(TWO, candidate).subtract(TWO).fastMod(candidate, prime);
+    }
+
+    return LLval.signum() == 0;
+  }
+
   public static boolean modPow_sub_mod(BigInteger candidate, int prime) {
     if (prime == 2) return true;
 
