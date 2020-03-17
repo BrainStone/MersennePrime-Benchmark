@@ -12,8 +12,8 @@ public class MersenneNumberGeneratorTest {
   private static final BigInteger ONE = BigInteger.ONE;
 
   @Test
-  public void shiftLeft_subTest() {
-    assertCalculatesCorrectly(ITERATIONS, MersenneNumberGenerator::shiftLeft_sub);
+  public void rawByteArrayTest() {
+    assertCalculatesCorrectly(ITERATIONS, MersenneNumberGenerator::rawByteArray);
   }
 
   @Test
@@ -22,8 +22,8 @@ public class MersenneNumberGeneratorTest {
   }
 
   @Test
-  public void rawByteArrayTest() {
-    assertCalculatesCorrectly(ITERATIONS, MersenneNumberGenerator::rawByteArray);
+  public void shiftLeft_subTest() {
+    assertCalculatesCorrectly(ITERATIONS, MersenneNumberGenerator::shiftLeft_sub);
   }
 
   private static void assertCalculatesCorrectly(

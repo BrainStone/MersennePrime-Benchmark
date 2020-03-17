@@ -30,8 +30,8 @@ public class MersenneNumberGeneratorBenchmark {
   }
 
   @Benchmark
-  public void shiftLeft_sub(Blackhole blackhole) {
-    blackhole.consume(MersenneNumberGenerator.shiftLeft_sub(prime));
+  public void rawByteArray(Blackhole blackhole) {
+    blackhole.consume(MersenneNumberGenerator.rawByteArray(prime));
   }
 
   @Benchmark
@@ -40,7 +40,7 @@ public class MersenneNumberGeneratorBenchmark {
   }
 
   @Benchmark
-  public void rawByteArray(Blackhole blackhole) {
-    blackhole.consume(MersenneNumberGenerator.rawByteArray(prime));
+  public void shiftLeft_sub(Blackhole blackhole) {
+    blackhole.consume(MersenneNumberGenerator.shiftLeft_sub(prime));
   }
 }
