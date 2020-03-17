@@ -40,6 +40,11 @@ public class MersennePrimeTesterBenchmark {
   }
 
   @Benchmark
+  public void modPow_sub_fastMod(Blackhole blackhole) {
+    blackhole.consume(MersennePrimeTester.modPow_sub_fastMod(candidate, basePrime));
+  }
+
+  @Benchmark
   public void modPow_sub_mod(Blackhole blackhole) {
     blackhole.consume(MersennePrimeTester.modPow_sub_mod(candidate, basePrime));
   }
@@ -47,6 +52,16 @@ public class MersennePrimeTesterBenchmark {
   @Benchmark
   public void modPow_sub_remain(Blackhole blackhole) {
     blackhole.consume(MersennePrimeTester.modPow_sub_remain(candidate, basePrime));
+  }
+
+  @Benchmark
+  public void mul_fastMod_sub(Blackhole blackhole) {
+    blackhole.consume(MersennePrimeTester.mul_fastMod_sub(candidate, basePrime));
+  }
+
+  @Benchmark
+  public void mul_fastMod_sub_fastMod(Blackhole blackhole) {
+    blackhole.consume(MersennePrimeTester.mul_fastMod_sub_fastMod(candidate, basePrime));
   }
 
   @Benchmark
@@ -67,6 +82,11 @@ public class MersennePrimeTesterBenchmark {
   @Benchmark
   public void mul_remain_sub_remain(Blackhole blackhole) {
     blackhole.consume(MersennePrimeTester.mul_remain_sub_remain(candidate, basePrime));
+  }
+
+  @Benchmark
+  public void mul_sub_fastMod(Blackhole blackhole) {
+    blackhole.consume(MersennePrimeTester.mul_sub_fastMod(candidate, basePrime));
   }
 
   @Benchmark
