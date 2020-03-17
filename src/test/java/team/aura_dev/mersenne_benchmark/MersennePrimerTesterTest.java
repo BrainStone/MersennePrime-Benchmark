@@ -45,6 +45,9 @@ public class MersennePrimerTesterTest {
     assertIsMersennePrime(1283, false, tester);
 
     assertIsMersennePrime(1234, false, tester);
+
+    // TODO: Edge cases where there's a negative number in the calculation
+    // Might not exist: https://www.mersenneforum.org/showthread.php?t=25373
   }
 
   private static void assertIsMersennePrime(
